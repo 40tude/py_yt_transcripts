@@ -1,2 +1,3 @@
-def main() -> None:
-    print("Hello from py-yt-transcripts!")
+from py_yt_transcripts.cli import main
+
+__all__ = ["main"]

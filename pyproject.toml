@@ -1,13 +1,15 @@
 [project]
 name = "py-yt-transcripts"
 version = "0.1.0"
-description = "Add your description here"
+description = "Save the transcript of a YouTube video as Markdown"
 readme = "README.md"
 authors = [
     { name = "Philippe BAUCOUR", email = "philippe.baucour@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "yt-dlp>=2026.10.26",
+]
 
 [project.scripts]
 py-yt-transcripts = "py_yt_transcripts:main"
@@ -20,6 +22,10 @@ build-backend = "uv_build"
 python_version = "3.14"
 strict = true
 warn_return_any = true
+
+[[tool.mypy.overrides]]
+module = ["yt_dlp", "yt_dlp.*"]
+ignore_missing_imports = true
 
 [dependency-groups]
 dev = [

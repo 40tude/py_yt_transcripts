@@ -2,7 +2,16 @@
 
 ## Description
 
-[Add project description here]
+Fetches the transcript of a YouTube video and saves it as a Markdown file in `./assets/`.
+
+Only the caption track is downloaded (via `yt-dlp`, in YouTube's `json3` format), never the video
+or its audio. The tool uses the captions in the video's original language, preferring captions
+written by the author over auto-generated ones. If the video has no captions, it prints a message
+and stops.
+
+The output file is named after the video title (`./assets/<title-slug>.md`). It contains a YAML
+front matter (title, channel, URL, upload date, language) followed by the transcript, grouped into
+paragraphs without timestamps.
 
 ## Installation
 
@@ -13,7 +22,7 @@ uv sync
 ## Usage
 
 ```powershell
-uv run py-yt-transcripts
+uv run py-yt-transcripts "https://www.youtube.com/watch?v=DpFwnhfhwt4"
 ```
 
 ## Testing
